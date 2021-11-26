@@ -1,0 +1,139 @@
+{
+  "models": [
+      {
+        "name": "iPhone 13",
+        "camera": 12,
+        "battery": 3095,
+        "cpu": "A+",
+        "drive": 512,
+        "ram": 4,
+        "price": 109999
+      },
+      {
+        "name": "Samsung Galaxy S21 Ultra",
+        "camera": 108,
+        "battery": 5000,
+        "cpu": "A+",
+        "drive": 256,
+        "ram": 12,
+        "price": 83990
+      },
+      {
+        "name": "Samsung Galaxy A52",
+        "camera": 64,
+        "battery": 4500,
+        "cpu": "C",
+        "drive": 128,
+        "ram": 4,
+        "price": 26990
+      },
+      {
+        "name": "Samsung Galaxy A12",
+        "camera": 48,
+        "battery": 5000,
+        "cpu": "D",
+        "drive": 64,
+        "ram": 4,
+        "price": 12990
+      },
+      {
+        "name": "Honor 50",
+        "camera": 108,
+        "battery": 4300,
+        "cpu": "B",
+        "drive": 128,
+        "ram": 6,
+        "price": 31499
+      },
+      {
+        "name": "Honor 50 Lite",
+        "camera": 64,
+        "battery": 4300,
+        "cpu": "C",
+        "drive": 128,
+        "ram": 6,
+        "price": 19999
+      },
+      {
+        "name": "Honor 30",
+        "camera": 40,
+        "battery": 4000,
+        "cpu": "B",
+        "drive": 128,
+        "ram": 8,
+        "price": 27999
+      },
+      {
+        "name": "Xiaomi 11T",
+        "camera": 108,
+        "battery": 5000,
+        "cpu": "A+",
+        "drive": 256,
+        "ram": 8,
+        "price": 44999
+      },
+      {
+        "name": "Xiaomi Redmi 9A",
+        "camera": 13,
+        "battery": 5000,
+        "cpu": "D",
+        "drive": 32,
+        "ram": 2,
+        "price": 8999
+      },
+      {
+        "name": "Xiaomi Redmi 10",
+        "camera": 50,
+        "battery": 5000,
+        "cpu": "C",
+        "drive": 128,
+        "ram": 4,
+        "price": 17999
+      },
+      {
+        "name": "Xiaomi 11 Lite",
+        "camera": 64,
+        "battery": 4250,
+        "cpu": "C",
+        "drive": 128,
+        "ram": 8,
+        "price": 29999
+      },
+      {
+        "name": "ZTE Blade L8",
+        "camera": 8,
+        "battery": 2000,
+        "cpu": "D",
+        "drive": 32,
+        "ram": 1,
+        "price": 4490
+      },
+      {
+        "name": "ZTE Blade A51 Lite",
+        "camera": 13,
+        "battery": 3200,
+        "cpu": "D",
+        "drive": 32,
+        "ram": 2,
+        "price": 7499
+      },
+      {
+        "name": "vivo Y1S",
+        "camera": 13,
+        "battery": 4030,
+        "cpu": "D",
+        "drive": 32,
+        "ram": 2,
+        "price": 8499
+      },
+      {
+        "name": "vivo V17Neo",
+        "camera": 16,
+        "battery": 4500,
+        "cpu": "C",
+        "drive": 128,
+        "ram": 16,
+        "price": 16999
+      }
+    ]
+}
