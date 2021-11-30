@@ -16,7 +16,7 @@ namespace IS1
     {
         private ListModel _models;
         private int _price;
-        private (int, int) _batteryRange;
+        private int _battery;
         private CPUtype _cpu = CPUtype.NoMatter;
         private int _ram;
         private int _drive;
@@ -32,7 +32,6 @@ namespace IS1
             _models = JsonConvert.DeserializeObject<ListModel>(json);
             batteryBox.SelectedIndex = 0;
             ramBox.SelectedIndex = 0;
-            diagonalBox.SelectedIndex = 0;
             cpuBox.SelectedIndex = 0;
             driveBox.SelectedIndex = 0;
             _camera = Convert.ToInt32(cameraTextBox.Text);
@@ -42,14 +41,20 @@ namespace IS1
         {
             return text != "Не имеет значения";
         }
-
+        //Кнопка "Подобрать рекомендацию" перестает быть активной при открытии формы "ModelsResult"
+        public void ActivateButton()
+        {
+            if (!button1.Enabled)
+                button1.Enabled = true;
+        }
         #region Обработка событий нажатия кнопок
+        //Обработка события при нажатии на кнопку "Подобрать рекомендацию"
         private void button1_Click(object sender, EventArgs e)
         {
             var models = new List<Model>(_models.models);
             
             models.RemoveAll(r => _cpu < r.cpu || r.ram < _ram || _price < r.price
-                || r.drive < _drive || r.camera < _camera || r.battery < _batteryRange.Item1);
+                || r.drive < _drive || r.camera < _camera || r.battery < _battery);
 
             if (models.Count == 0)
             {
@@ -57,28 +62,27 @@ namespace IS1
             }
             else
             {
-                ModelsResult newform = new ModelsResult();
+                ModelsResult newform = new ModelsResult(this);
                 newform.Show();
                 newform.ShowResults(models);
+                button1.Enabled = false;
             }
         }
-
+        //При взаимодействии с этим элементом указывается энергоемкость батареи
         private void batteryBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             var obj = sender as ComboBox;
             var text = obj.SelectedItem.ToString();
             if (doesMatter(text))
             {
-                var numbers = text.Split('-');
-                _batteryRange = (Convert.ToInt32(numbers[0]), Convert.ToInt32(numbers[1]));
+                _battery = Convert.ToInt32(text);
             }
             else
             {
-                _batteryRange.Item1 = 0;
-                _batteryRange.Item2 = 0;
+                _battery = 0;
             }
         }
-
+        //При взаимодействии с этим элементом указывается объем оперативной памяти
         private void ramBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             var obj = sender as ComboBox;
@@ -86,11 +90,8 @@ namespace IS1
             if (doesMatter(text)) { _ram = Convert.ToInt32(text); }
             else _ram = 0;
         }
+        //При взаимодействии с этим элементом указывается объем памяти
 
-        private void diagonalBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
         private void driveBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             var obj = sender as ComboBox;
@@ -100,6 +101,7 @@ namespace IS1
             else
                 _drive = 0;
         }
+        //При взаимодействии с этим элементом указывается класс процессора
 
         private void cpuBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -132,7 +134,7 @@ namespace IS1
                 _cpu = CPUtype.NoMatter;
             }
         }
-
+        //Имеет ли значение камера
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBox1.Checked)
@@ -146,14 +148,13 @@ namespace IS1
                 cameraTextBox.Enabled = true;
             }
         }
-
+        //Качество камеры
         private void cameraTextBox_TextChanged(object sender, EventArgs e)
         {
             var text = (sender as TextBox).Text;
             _camera = Convert.ToInt32(text);
         }
-        #endregion Обработка событий нажатия кнопок
-
+        //Бюджет
         private void priceTextBox_TextChanged(object sender, EventArgs e)
         {
             var text = (sender as TextBox).Text;
@@ -168,5 +169,6 @@ namespace IS1
                 _price = 0;
             }
         }
+        #endregion Обработка событий нажатия кнопок
     }
 }

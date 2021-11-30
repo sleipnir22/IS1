@@ -33,6 +33,7 @@
             // 
             // richTextBox1
             // 
+            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.richTextBox1.Location = new System.Drawing.Point(13, 13);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(370, 477);
@@ -46,7 +47,8 @@
             this.ClientSize = new System.Drawing.Size(395, 502);
             this.Controls.Add(this.richTextBox1);
             this.Name = "ModelsResult";
-            this.Text = "ModelsResult";
+            this.Text = "Подобранные смартфоны";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ModelsResult_FormClosed);
             this.ResumeLayout(false);
 
         }

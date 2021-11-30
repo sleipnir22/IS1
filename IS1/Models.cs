@@ -26,10 +26,12 @@ namespace IS1
         //цена смартфона
         public int price { get; set; }
     }
+    //Структура для десереализации файла .JSON
     public struct ListModel
     {
         public List<Model> models { get; set; }
     }
+    //Класс процессора
     public enum CPUtype
     {
         [EnumMember(Value = "A+")]

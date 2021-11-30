@@ -12,26 +12,31 @@ namespace IS1
 {
     public partial class ModelsResult : Form
     {
-        public ModelsResult()
+        private MainApp _app;
+        public ModelsResult(MainApp app)
         {
             InitializeComponent();
+            _app = app;
         }
 
         public void ShowResults(List<Model> models)
         {
             foreach (var model in models)
             {
-                
-                richTextBox1.Text += $"Название: {model.name}\n " +
+                richTextBox1.Text += $"Название: {model.name}\n" +
                     $"Цена: {model.price}\n" +
                     $"Батарея (мАч): {model.battery}\n" +
                     $"Рейтинг процессора: {model.cpu.ToString()}\n" +
                     $"Оперативная память (Гб): {model.ram}\n" +
                     $"Объем памяти (Гб): {model.drive}\n" +
-                    "---------------------------------------\n";
-                    
+                    $"Камера (МП): {model.camera}\n"+
+                    "---------------------------------------\n"; 
             }
         }
 
+        private void ModelsResult_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            _app.ActivateButton();
+        }
     }
 }
